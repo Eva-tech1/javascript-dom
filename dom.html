@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML DOM & EVENTS</title>
+</head>
+<body>
+  <P onmouseover="changeSize()" onmouseout="changeColor()" id="p_one"> Hello welcome to my web  page! </P>
+  <button id="btn_change">Change</button>
+  <button onclick="changeColor()">Click me !</button>
+  <script>
+    const button = document.querySelector("#btn_change");
+    function changeText(event){
+      const p = document.querySelector( "#p_one") ;
+      p.innerText="The paragraph content has been changed";
+    }
+    // add event listener for the click when the button is pressed
+    button.addEventListener("click", changeText);
+    //keydown event this are keyboard events
+document.addEventListener("keydown", (event) =>{
+  console.log("You have pressed a key." +event.key);
+});
+//key up event  when you release the key they are keyboard events
+document.addEventListener("keyup", (event) =>{
+  console.log(event.key+" has been released.");
+});
+//mouse events when you press and release mouse buttons
+document.addEventListener( "mousedown", ()=>{console.log("Mouse has been pressed")});
+
+
+document.addEventListener( "mouseup", ()=>{console.log("Mouse has been released")});
+function changeColor(){
+  var p = document.getElementById("p_one");
+  p.style.color ="blue";
+}
+function changeSize(){
+  let p = document.getElementById('p_one');
+  p.style.fontSize='20px';
+  p.style.color="green";
+}
+
+//DIFF WAYS TO GET ATTRIBUTES
+querySelector();
+getElement(); //id attribute
+getElementbyName(); //name attribute
+getElementbyNameTag();
+  </script>
+</body>
+</html>
+
+
